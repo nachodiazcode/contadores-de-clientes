@@ -2,8 +2,9 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 
+// nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@pinia/nuxt', '@vueuse/nuxt', '@nuxt/eslint'],
+  modules: ['@vueuse/nuxt', '@nuxt/eslint'],
   devtools: { enabled: true },
   app: { head: { title: 'Contadores de Clientes' } }
 })
