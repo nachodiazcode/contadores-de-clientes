@@ -1,11 +1,4 @@
 <script setup lang="ts">
-
+import { navigateTo } from 'nuxt/app'
+navigateTo('/contadores', { replace: true })
 </script>
-
-<template>
-  $END$
-</template>
-
-<style scoped>
-
-</style>
