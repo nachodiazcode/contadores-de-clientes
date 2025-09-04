@@ -1,13 +1,16 @@
 {
-  "name": "nuxt-app",
+  "name": "contadores-de-clientes",
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "build": "nuxt build",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "generate": "nuxt generate",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint . --ext .js,.ts,.vue",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@nuxt/eslint": "^1.9.0",
@@ -15,18 +18,18 @@
     "@nuxt/ui": "^3.3.3",
     "@pinia/nuxt": "^0.11.2",
     "@vueuse/nuxt": "^13.9.0",
-    "eslint": "^9.34.0",
     "nuxt": "^4.0.3",
     "pinia": "^3.0.3",
-    "typescript": "^5.9.2",
     "vue": "^3.5.20",
     "vue-router": "^4.5.1",
+    "typescript": "^5.4.2",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
-    "chokidar-cli": "^3.0.0",
-    "concurrently": "^9.2.1",
     "sass": "^1.92.0",
-    "vite-tsconfig-paths": "^5.1.4"
+    "eslint": "^9.34.0",
+    "vite-tsconfig-paths": "^5.1.4",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.2.1"
   }
 }
