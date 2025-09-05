@@ -301,11 +301,11 @@ button {
 }
 
 
-@media (max-width: 624px) {
+@media (max-width: 844px) {
   .buscador{
     width: 94%;
     position: relative;
-    right:4%;
+    right:1%;
   }
   .input{
     background-color: #1b2d48;
@@ -354,10 +354,13 @@ button {
 
 }
 
+
+}
+
 }
 
 
-}
+
 </style>
 
 <style>
