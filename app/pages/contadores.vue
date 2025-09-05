@@ -265,9 +265,47 @@ button {
 }
 
 /* Responsive */
+
+@media (max-width: 1390px) {
+  .buscador{
+    width: 94%;
+    position: relative;
+    right:2%;
+  }
+  .input{
+    background-color: #3c3a3c;
+    max-width: 94%;
+    position: relative;
+    left:0%;
+    color:#95b0f1;
+  }
+
+  .nombre{
+    width: 94px;
+  }
+  .contador-item {
+  width: 104%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  right:5%;
+  background: #5e5855;
+  border: 1px solid #334155;
+  border-radius: 12px;
+
+  gap: 0.5rem;
+  transition: background 0.2s ease;
+
+  }
+
+}
+
+
 @media (max-width: 624px) {
   .buscador{
     width: 94%;
+    position: relative;
+    right:0%;
   }
   .input{
     background-color: #1b2d48;
@@ -275,7 +313,7 @@ button {
     color:#95b0f1;
   }
   .contador-item {
-  width: 103%;
+  width: 102%;
   display: flex;
   align-items: center;
   position: relative;
@@ -288,6 +326,9 @@ button {
   transition: background 0.2s ease;
 
 }
+
+
+
 
 }
 </style>
