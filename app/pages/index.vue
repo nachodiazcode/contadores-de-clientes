@@ -1,9 +1,12 @@
 <template>
   <main class="hero">
     <div class="hero__inner">
+      <!-- 👇 Aquí va el br que evita el solapamiento -->
       <h1 class="hero__title">
-        Contadores de <span class="gradient-text">Clientes</span>
+        Contadores de<br>
+        <span class="gradient-text">Clientes</span>
       </h1>
+
       <p class="hero__desc">
         Administrador de Contadores
       </p>
@@ -49,22 +52,27 @@
   padding: 1rem;
   text-align: center;
 
-&__inner {
-  max-width: 900px;
-  padding: 1rem;
-  animation: fadeIn 1.5s ease-out forwards;
-  opacity: 1; /* ✅ CAMBIO CLAVE para que sea visible ya mismo */
-}
- &__title {
-  font-size: clamp(2.5rem, 7vw, 4.5rem);
-  font-weight: 900;
-  line-height: 0.5;
-  opacity: 0;
-  animation: fadeUp 1s ease-out 0.2s forwards;
+  &__inner {
+    max-width: 900px;
+    padding: 1rem;
+    animation: fadeIn 1.5s ease-out forwards;
+    opacity: 1;
+  }
 
-  /* ✅ Subir el título visualmente */
-  margin-top: -9rem;
-}
+  &__title {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    opacity: 0;
+    animation: fadeUp 1s ease-out 0.2s forwards;
+
+    /* Ajuste para que el título no quede muy arriba */
+    margin-top: -5rem;
+
+    @media (max-width: 425px) {
+      margin-top: -3rem;
+    }
+  }
 
   &__desc {
     font-size: 1.125rem;

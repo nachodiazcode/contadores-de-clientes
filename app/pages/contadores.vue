@@ -7,28 +7,26 @@
       class="buscador"
     />
 
-    <!-- Formulario para agregar -->
+    <!-- Formulario nuevo contador -->
     <form @submit.prevent="agregarContador" class="form">
-      <input
-        v-model="nombre"
-        placeholder="Nombre del contador"
-        class="input"
-      />
+      <input v-model="nombre" placeholder="Nombre del contador" class="input" />
       <button type="submit" class="btn-agregar" :disabled="isFull">Agregar</button>
     </form>
 
     <p v-if="isFull" class="aviso">⚠️ Límite de 20 contadores alcanzado.</p>
 
-    <!-- Lista -->
+    <!-- Lista filtrada -->
     <ul class="contador-lista">
-      <li v-for="c in contadoresFiltrados" :key="c.id" class="contador-item">
-        <input type="text" :value="c.nombre" class="nombre" disabled />
-        <div class="acciones">
-          <button class="btn-mayor" @click="aumentar(c.id)" :disabled="c.valor >= 20">+</button>
-          <span class="valor">{{ c.valor }}</span>
-          <button class="btn-menor" @click="disminuir(c.id)" :disabled="c.valor <= 0">−</button>
-          <button class="btn-delete" @click="eliminarContador(c.id)">🗑</button>
-        </div>
+      <li
+        v-for="c in contadoresFiltrados"
+        :key="c.id"
+        class="contador-item"
+      >
+        <input type="text" :value="c.nombre" disabled class="nombre" />
+        <button class="btn-mayor" @click="aumentar(c.id)" :disabled="c.valor >= 20">+</button>
+        <span class="valor">{{ c.valor }}</span>
+        <button class="btn-menor" @click="disminuir(c.id)" :disabled="c.valor <= 0">−</button>
+        <button class="btn-delete" @click="eliminarContador(c.id)">🗑</button>
       </li>
     </ul>
   </main>
@@ -98,135 +96,142 @@ function disminuir(id: number) {
 
 .layout {
   min-height: 100dvh;
-  padding: 2rem 1rem;
-  font-family: 'Ubuntu', sans-serif;
+  padding: 3rem 1.5rem;
   color: white;
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
-  max-width: 1200px;
+  gap: 3rem;
+  max-width: 1300px;
   margin: 0 auto;
-}
-
-/* Buscador */
-.buscador {
-  width: 95%;
-  padding: 0.8rem 1rem;
-  font-size: 1rem;
-  border-radius: 9999px;
-  background-color: #1e293b;
-  border: none;
-  color: #ccc;
-  box-shadow: inset 0 0 0 1px #334155;
-  transition: box-shadow 0.2s ease;
-}
-.buscador:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #38bdf8 inset;
 }
 
 /* Formulario */
 .form {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
-  width: 100%;
-  max-width: 600px;
+  gap: 1rem;
+  justify-content: left;
+  width:100%;
 }
 
 .input {
-  flex: 1 1 240px;
-  padding: 0.8rem 1rem;
+  flex: 1 1 100%;
+
+  padding: 0.55rem 1rem;
   font-size: 1rem;
-  border-radius: 8px;
+  line-height: 1.5;
+  border-radius: 18px;
   border: none;
-  background-color: #032151;
+  position:relative;
+  background-color: #3a414e;
   color: white;
-  box-shadow: inset 0 0 0 1px #055ad2;
+  box-shadow: 0 0 0 2px #334155 inset;
+  transition: all 0.2s ease;
 }
 .input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #024f70 inset;
+  box-shadow: 0 0 0 2px #38bdf8 inset;
 }
 
+/* Botón Agregar */
 .btn-agregar {
-  padding: 0.5rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   border-radius: 9999px;
-  font-size: 0.9rem;
-  font-weight: bold;
   border: none;
+  font-weight: bold;
   background: linear-gradient(to right, #ff4d9d, #ff914d);
   color: white;
   box-shadow: 0 4px 14px rgba(255, 77, 157, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .btn-agregar:hover:not(:disabled) {
   transform: scale(1.05);
   box-shadow: 0 6px 18px rgba(255, 77, 157, 0.5);
 }
 .btn-agregar:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
-.aviso {
-  font-weight: bold;
-  color: #f87171;
+/* Buscador */
+.buscador {
+  width: 98%;
+  padding: 0.7rem 1rem;
+  border-radius: 9999px;
+  border: none;
+  background-color: #1e293b;
+  color: white;
+  box-shadow: 0 0 0 2px #334155 inset;
+  transition: all 0.2s ease;
+}
+.buscador:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #38bdf8 inset;
 }
 
-/* Lista */
+/* Aviso límite */
+.aviso {
+  text-align: center;
+  color: #f87171;
+  font-weight: bold;
+}
+
+/* Lista de contadores */
 .contador-lista {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-  max-width: 800px;
   padding: 0;
+  width: 90%;
 }
 
-/* Item */
+/* Ítem */
 .contador-item {
+  width: 108%;
   display: flex;
-  flex-direction: column;
-  background: #1e293b;
+  position: relative;
+  right:62px;
+  align-items: center;
+  background: #2856a0;
   border: 1px solid #334155;
   border-radius: 12px;
-  padding: 0.75rem;
-  gap: 0.75rem;
+  padding: 1rem;
+  gap: 1rem;
+  transition: background 0.2s ease;
 }
+.contador-item:hover {
+  background: #273449;
+}
+
 .nombre {
+  flex: 2;
   background: #0f172a;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   border-radius: 8px;
   border: none;
   color: white;
-  font-size: 0.9rem;
-  width: 95%;
 }
-.acciones {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  justify-content: flex-end;
-}
+
+/* Valor */
 .valor {
   font-weight: bold;
-  min-width: 24px;
+  min-width: 28px;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 /* Botones */
 button {
-  font-size: 0.9rem;
-  padding: 0.4rem 0.7rem;
-  border-radius: 6px;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.15s ease;
 }
+
+/* Botón + */
 .btn-mayor {
   background-color: #22c55e;
   color: white;
@@ -238,6 +243,7 @@ button {
   background-color: #22c55e88;
 }
 
+/* Botón - */
 .btn-menor {
   background-color: #ef4444;
   color: white;
@@ -249,26 +255,52 @@ button {
   background-color: #ef444488;
 }
 
+/* Botón 🗑 */
 .btn-delete {
   background-color: #334155;
-  color: white;
+  color: #fff;
 }
 .btn-delete:hover {
   background-color: #475569;
 }
 
 /* Responsive */
-@media (max-width: 480px) {
-  .form {
-    flex-direction: column;
-    align-items: stretch;
+@media (max-width: 624px) {
+  .buscador{
+    width: 94%;
+  }
+  .input{
+    background-color: #1b2d48;
+    width: 100%;
+    color:#95b0f1;
   }
   .contador-item {
-    padding: 0.5rem;
-  }
-  .acciones {
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+  width: 103%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  right:5%;
+  background: #0c64f2;
+  border: 1px solid #334155;
+  border-radius: 12px;
+
+  gap: 0.5rem;
+  transition: background 0.2s ease;
+
+}
+
 }
 </style>
+
+<style>
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s ease;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+</style>
+
