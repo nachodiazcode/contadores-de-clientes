@@ -305,7 +305,7 @@ button {
   .buscador{
     width: 94%;
     position: relative;
-    right:0%;
+    right:4%;
   }
   .input{
     background-color: #1b2d48;
@@ -328,6 +328,33 @@ button {
 }
 
 
+@media (max-width: 624px) {
+  .buscador{
+    width: 92%;
+    position: relative;
+    right:0%;
+  }
+  .input{
+    background-color: #1b2d48;
+    width: 100%;
+    color:#95b0f1;
+  }
+  .contador-item {
+  width: 102%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  right:5%;
+  background: #0c64f2;
+  border: 1px solid #334155;
+  border-radius: 12px;
+
+  gap: 0.5rem;
+  transition: background 0.2s ease;
+
+}
+
+}
 
 
 }
