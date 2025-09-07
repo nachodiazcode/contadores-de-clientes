@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-slate-950 text-slate-200 font-sans">
+  <div class="min-h-screen bg-slate-950 text-slate-200 font-sans flex flex-col">
     <!-- NAVBAR -->
     <header class="navbar">
       <div class="navbar__container">
@@ -15,14 +15,17 @@
     </header>
 
     <!-- MAIN -->
-    <main class="max-w-6xl mx-auto px-4 py-6">
+    <main class="max-w-6xl mx-auto px-4 py-6 flex-1">
       <slot />
     </main>
+
+    <!-- FOOTER -->
+    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-// no necesitamos nada aquí porque ya no hay toggle/sidebar
+import Footer from '../../components/Footer.vue'
 </script>
 
 <style scoped lang="scss">
